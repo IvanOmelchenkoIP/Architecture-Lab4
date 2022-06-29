@@ -2,4 +2,5 @@ print hello
 reverse some string
 print reversed
 add 23 5
+reverse "string to reverse"
 print reverse
