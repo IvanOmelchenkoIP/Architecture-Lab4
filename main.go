@@ -1,9 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
-	"bufio"
 
 	engine "github.com/IvanOmelchenkoIP/Architecture-Lab4/engine"
 	. "github.com/IvanOmelchenkoIP/Architecture-Lab4/parser"

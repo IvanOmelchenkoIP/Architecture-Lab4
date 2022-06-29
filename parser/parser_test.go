@@ -6,7 +6,6 @@ import (
 	engine "github.com/IvanOmelchenkoIP/Architecture-Lab4/engine"
 )
 
-
 func Test(t *testing.T) { gocheck.TestingT(t) }
 
 type MySuite struct{}

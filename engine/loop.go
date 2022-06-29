@@ -24,16 +24,22 @@ func (loop *Loop) Start() {
 }
 
 func (loop *Loop) Post(cmd Command) {
+	// Commands after the request to stop will be ignored
+	if loop.stop {
+		return
+	}
 	loop.commands.push(cmd)
 }
 
 func (loop *Loop) AwaitFinish() {
-	loop.Post(commandStop{})
+	loop.Post(commandStop(func(handler Handler) {
+		loop.stop = true
+	}))
 	<-loop.stopSignal
 }
 
-type commandStop struct{}
+type commandStop func(handler Handler)
 
 func (stop commandStop) Execute(handler Handler) {
-	handler.(*Loop).stop = true
+	stop(handler)
 }
