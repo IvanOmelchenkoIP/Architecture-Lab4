@@ -1,0 +1,5 @@
+print hello
+reverse some string
+print reversed
+add 23 5
+print reverse
